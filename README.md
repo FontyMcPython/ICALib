@@ -3,7 +3,7 @@
 ### Utilizada en el examen de Microprocesadores de 2018. Consegui un
 ### 10 sin muchas complicaciones. Tambien la use para el proyecto final.
 ### Parece complicada, pero es bastante sencilla una vez le pillas el
-### truco parece facil.
+### truco.
 
 -Chuletario: Un breve fichero txt con un resumen muy breve del temario.
 
