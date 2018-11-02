@@ -1,0 +1,52 @@
++--------EXAMEN LABORATORIO MICROS 2018--------------------------------------------------------------¬
+|         José Antonio Font García    													             |
+|                  3º GITT                  												         |	
+|         ------------------------              												     |
+|           Colabora y Distribuye                 													 |
+|                                                  													 |
+\----------------------------------------------------------------------------------------------------/
+COMPILADOR:
+	1.File>New Project
+	2.Standalone Project
+	3.32-bit MCUs (PIC32)   PIC32MX230F064D
+	4.Licensed Debugger
+	5.XC32
+	6.Añadir ficheros
+------------------------------------------------------------------------------------------------------
+MÁSCARAS: (1<<n)
+	-Check: var & Mask		-A 0: var &= Mask		-A 1: var |= Mask 		-Invertir: var ^= ~(Mask)
+
+
+
+-----------------------------------------------------------------------------------------------------
+I/O DIGITAL: PORTx
+	-TRISx:-->1: Input			-LATx: Activo/Inactivo			
+		   \__>0: Output
+	-ANSELx = 0;
+																	         .-""-.
+																	 _______/   |  \  Cuidado con la
+																	|_______    |   ; temporización
+																	        \   .  /
+																	         '-..-'
+-----------------------------------------------------------------------------------------------------
+TEMPORIZADORES:	TMRx      PRx      TxCON:0x8000--> ON, TCKPS, TCS, TSYNC, TGATE						
+				 ▼         ▼         ▼								    Tespera
+			   Cuenta    Periodo   Config						PRx =-------------	(Max = 65535)
+			   														 div*Tclk
+		-Tipo A: 1 8 64 256						-ON a 0
+		-Tipo B: 1 2 4 8 16 32 64 256 			-Borrar TMRx
+												-Borrar Flag
+												-Poner PRx
+												-TCK a 0
+												-Prescaler
+												-ON a 1
+-----------------------------------------------------------------------------------------------------
+INTERRUPT: __attribute__(vector(), interrupt(IPLxSOFT), nomips16)
+		   void nombre(void)  {
+		   		BORRAR FLAG
+		   }
+	-Borrar Flag T1IF			+ asm("ei") / asm("di")
+	-Enable		 T1IE
+	-Prioridad	 T1IP
+	-Subprioridad T1IS
+----------------------------------------------------------------------------------------------------
