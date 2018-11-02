@@ -4,6 +4,7 @@ Libreria para la asignatura de Microprocesadores.
 -Chuletario: Un breve fichero txt con un resumen muy breve del temario.
 
 -ICALib.c : Es la propia libreria.
+
     - configurarPinIn(int address, int port) : Configura un pin como
     entrada. El puerto es 1 para el A, 2 para B y 3 para C.
     
